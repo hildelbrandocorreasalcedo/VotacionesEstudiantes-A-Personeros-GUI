@@ -32,7 +32,7 @@ namespace Design_Dashboard_Modern
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VotacionesEstudiantes));
             this.DtgVotaciones = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.BaseRegistroVoto = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.BtRegistrarVoto = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuGradientPanel4 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.BtCancelar = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace Design_Dashboard_Modern
             this.PanelColor = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DtgVotaciones)).BeginInit();
-            this.bunifuGradientPanel1.SuspendLayout();
+            this.BaseRegistroVoto.SuspendLayout();
             this.bunifuGradientPanel4.SuspendLayout();
             this.bunifuGradientPanel5.SuspendLayout();
             this.bunifuGradientPanel6.SuspendLayout();
@@ -65,8 +65,11 @@ namespace Design_Dashboard_Modern
             this.Nombre});
             this.DtgVotaciones.Location = new System.Drawing.Point(68, 178);
             this.DtgVotaciones.Name = "DtgVotaciones";
+            this.DtgVotaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgVotaciones.Size = new System.Drawing.Size(348, 221);
             this.DtgVotaciones.TabIndex = 0;
+            this.DtgVotaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgVotaciones_CellClick);
+            this.DtgVotaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgVotaciones_CellContentClick);
             // 
             // label2
             // 
@@ -79,20 +82,20 @@ namespace Design_Dashboard_Modern
             this.label2.TabIndex = 36;
             this.label2.Text = "VOTACIONES DE ESTUDIANTES";
             // 
-            // bunifuGradientPanel1
+            // BaseRegistroVoto
             // 
-            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
-            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuGradientPanel1.Controls.Add(this.BtRegistrarVoto);
-            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.Blue;
-            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.DarkViolet;
-            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(152, 425);
-            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
-            this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(177, 44);
-            this.bunifuGradientPanel1.TabIndex = 39;
+            this.BaseRegistroVoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BaseRegistroVoto.BackgroundImage")));
+            this.BaseRegistroVoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BaseRegistroVoto.Controls.Add(this.BtRegistrarVoto);
+            this.BaseRegistroVoto.GradientBottomLeft = System.Drawing.Color.Blue;
+            this.BaseRegistroVoto.GradientBottomRight = System.Drawing.Color.DarkViolet;
+            this.BaseRegistroVoto.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.BaseRegistroVoto.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.BaseRegistroVoto.Location = new System.Drawing.Point(152, 425);
+            this.BaseRegistroVoto.Name = "BaseRegistroVoto";
+            this.BaseRegistroVoto.Quality = 10;
+            this.BaseRegistroVoto.Size = new System.Drawing.Size(177, 44);
+            this.BaseRegistroVoto.TabIndex = 39;
             // 
             // BtRegistrarVoto
             // 
@@ -344,14 +347,14 @@ namespace Design_Dashboard_Modern
             this.Controls.Add(this.labNombre);
             this.Controls.Add(this.TxtIdentificacion);
             this.Controls.Add(this.bunifuGradientPanel4);
-            this.Controls.Add(this.bunifuGradientPanel1);
+            this.Controls.Add(this.BaseRegistroVoto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DtgVotaciones);
             this.Name = "VotacionesEstudiantes";
             this.Text = "Consultar Ganancias";
             this.Load += new System.EventHandler(this.ConsultarGanancias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgVotaciones)).EndInit();
-            this.bunifuGradientPanel1.ResumeLayout(false);
+            this.BaseRegistroVoto.ResumeLayout(false);
             this.bunifuGradientPanel4.ResumeLayout(false);
             this.bunifuGradientPanel5.ResumeLayout(false);
             this.bunifuGradientPanel6.ResumeLayout(false);
@@ -366,7 +369,7 @@ namespace Design_Dashboard_Modern
 
         private System.Windows.Forms.DataGridView DtgVotaciones;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        private Bunifu.Framework.UI.BunifuGradientPanel BaseRegistroVoto;
         private Bunifu.Framework.UI.BunifuFlatButton BtRegistrarVoto;
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel4;
         private System.Windows.Forms.Button BtCancelar;

@@ -26,8 +26,7 @@ namespace ProyectoHotelPensionados
             {
                 MessageBox.Show("No es posible realizar las votaciones porque no existen estudiantes cargados");
                 Application.Exit();
-            }
-            
+            }           
         }
     }
 }

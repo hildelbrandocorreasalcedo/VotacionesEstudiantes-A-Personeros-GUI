@@ -19,6 +19,7 @@ namespace Design_Dashboard_Modern
         public VotacionesEstudiantes()
         {
             InitializeComponent();
+           
         }
 
         private void BuscarDtg()
@@ -32,6 +33,8 @@ namespace Design_Dashboard_Modern
                 var response = estudianteService.BuscarDtg(TxtIdentificacion.Text);
                 if (response != null)
                 {
+                    DtgVotaciones.Enabled = true;
+                    BtRegistrarVoto.Enabled = true;
                     ConsultarTodosCandidatos();
                 }
             }
@@ -41,8 +44,10 @@ namespace Design_Dashboard_Modern
                 var Messg = estudianteService.ConsultaNoEncontradaIdentificacion();
                 MessageBox.Show(Messg.Message);
                 DtgVotaciones.Rows.Clear();
-                    
-            }               
+                BtRegistrarVoto.Enabled = false;
+                DtgVotaciones.Enabled = false;
+            }
+            
         }
         private void ConsultarTodosCandidatos()
         {            
@@ -71,7 +76,9 @@ namespace Design_Dashboard_Modern
         private void LimpiarTxt()
         {
             TxtIdentificacion.Text = "";
-            TxtNombre.Text = "";  
+            TxtNombre.Text = "";
+            BtRegistrarVoto.Enabled = false;
+            DtgVotaciones.Enabled = false;
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
@@ -87,12 +94,26 @@ namespace Design_Dashboard_Modern
             {
                 var respuesta = estudianteService.ConsultaVaciaBuscarDtg();
                 MessageBox.Show(respuesta.Message);
+                BtRegistrarVoto.Enabled = false;
+                DtgVotaciones.Enabled = false;
             }
             else
             {
-                BuscarDtg();
-                
+                BuscarDtg();               
             }
+        }
+
+        private void DtgVotaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+             BtRegistrarVoto.Enabled = true;
+            DtgVotaciones.Enabled = true;
+             DtgVotaciones.Refresh();
+    
+        }
+
+        private void DtgVotaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
