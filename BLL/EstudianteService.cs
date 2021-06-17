@@ -98,13 +98,13 @@ namespace BLL
             return respuesta;
         }
 
-        public RespuestaConsulta ConsultarCandidato()
+        public RespuestaConsulta ConsultarTodosCandidatos()
         {
             RespuestaConsulta respuesta = new RespuestaConsulta();
             try
             {
                 respuesta.Error = false;
-                IList<Candidatos> Candidatoss = CandidatoRepository.ConsultarCandidato();
+                IList<Candidatos> Candidatoss = CandidatoRepository.ConsultarTodosCandidatos();
                 if (Candidatoss.Count != 0)
                 {
                     respuesta.Mensaje = "Se Consulta la Informacion de candidatos";
@@ -125,9 +125,45 @@ namespace BLL
             return respuesta;
         }
 
-        //////////////////////////////////------------------------///////////////////////////////////////
-        /////////////////////////////////------Estudiantes-------///////////////////////////////////////
-        ////////////////////////////////------------------------///////////////////////////////////////
+        public ConsultaCandidatoResponse ConsultarTodosCandidatosDtg()
+        {
+            try
+            {
+                List<Candidatos> candidato = CandidatoRepository.ConsultarTodosCandidatosDtg();
+                if (candidato != null)
+                {
+                    return new ConsultaCandidatoResponse(candidato);
+                }
+                else
+                {
+                    return new ConsultaCandidatoResponse("El candidato buscado no se encuentra Registrado");
+                }
+            }
+            catch (Exception e)
+            {
+
+                return new ConsultaCandidatoResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
+
+        public class ConsultaCandidatoResponse
+        {
+            public List<Candidatos> Candidato { get; set; }
+            public string Message { get; set; }
+            
+            public ConsultaCandidatoResponse(List<Candidatos> candidato)
+            {
+                Candidato = new List<Candidatos>();
+                Candidato = candidato;
+            }
+            public ConsultaCandidatoResponse(string message)
+            {
+                Message = message;
+            }
+        }
+            //////////////////////////////////------------------------///////////////////////////////////////
+            /////////////////////////////////------Estudiantes-------///////////////////////////////////////
+            ////////////////////////////////------------------------///////////////////////////////////////
         public string Guardar(Estudiante estudiante)
         {
             try

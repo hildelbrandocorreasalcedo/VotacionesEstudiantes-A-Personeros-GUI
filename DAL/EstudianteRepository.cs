@@ -30,12 +30,11 @@ namespace DAL
             file.Close();
         }
 
-        public IList<Candidatos> ConsultarCandidato()
-        {
-            string linea = string.Empty;
+        public IList<Candidatos> ConsultarTodosCandidatos()
+        {           
             FileStream fileStream = new FileStream(FileNameCandidatos, FileMode.OpenOrCreate);
             StreamReader lector = new StreamReader(fileStream);
-            
+            string linea = string.Empty;
             while ((linea = lector.ReadLine()) != null)
             {
                 Candidatos candidato = MapearCandidato(linea);
@@ -45,6 +44,22 @@ namespace DAL
             fileStream.Close();
             return candidatos;
         }
+        public List<Candidatos> ConsultarTodosCandidatosDtg()
+        {
+            List<Candidatos> candidatos = new List<Candidatos>();
+            FileStream fileStream = new FileStream(FileNameCandidatos, FileMode.OpenOrCreate, FileAccess.Read);
+            StreamReader lector = new StreamReader(fileStream);
+            string linea = string.Empty;
+            while ((linea = lector.ReadLine()) != null)
+            {
+                Candidatos candidato = MapearCandidato(linea);
+                candidatos.Add(candidato);
+            }
+            lector.Close();
+            fileStream.Close();
+            return candidatos;
+        }
+
         public Candidatos MapearCandidato(string linea)
         {
             Candidatos candidato = new Candidatos();
@@ -59,7 +74,7 @@ namespace DAL
         public void EliminarCandidato(string numeroTarjeton)
         {
             candidatos.Clear();
-            candidatos = ConsultarCandidato();
+            candidatos = ConsultarTodosCandidatos();
             FileStream fileStream = new FileStream(FileNameCandidatos, FileMode.Create);
             fileStream.Close();
             foreach (var item in candidatos)
@@ -74,7 +89,7 @@ namespace DAL
         public void ModificarCandidato(Candidatos candidato)
         {
             candidatos.Clear();
-            candidatos = ConsultarCandidato();
+            candidatos = ConsultarTodosCandidatos();
             FileStream fileStream = new FileStream(FileNameCandidatos, FileMode.Create);
             fileStream.Close();
             foreach (var item in candidatos)
@@ -93,7 +108,7 @@ namespace DAL
         public Candidatos BuscarCandidato(string numeroTarjeton)
         {
             candidatos.Clear();
-            candidatos = ConsultarCandidato();
+            candidatos = ConsultarTodosCandidatos();
             Candidatos persona = new Candidatos();
             foreach (var item in candidatos)
             {
@@ -187,7 +202,6 @@ namespace DAL
         }
         public List<Estudiante> BuscarDtg(string identificacion)
         {
-
             List<Estudiante> estudiantes = ConsultarTodos();
             List<Estudiante> estudiantesFiltradasBuscado =
                 (from estudiante in estudiantes
@@ -195,6 +209,7 @@ namespace DAL
                  select estudiante).ToList();
             return estudiantesFiltradasBuscado;
         }
+        
         public int TotalizarVotos()
         {
             return ConsultarTodos().Count();

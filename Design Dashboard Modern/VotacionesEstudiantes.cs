@@ -23,34 +23,36 @@ namespace Design_Dashboard_Modern
 
         private void BuscarDtg()
         {
-            var response = estudianteService.BuscarDtg(TxtIdentificacion.Text);
-            if (response != null)
+           
+            EstudianteResponse respuesta = estudianteService.BuscarPorIdentificacion(TxtIdentificacion.Text);
+            Estudiante estudiante = respuesta.Estudiante;
+            if (estudiante != null)
             {
-                EstudianteResponse respuesta = estudianteService.BuscarPorIdentificacion(TxtIdentificacion.Text);
-                Estudiante estudiante = respuesta.Estudiante;
-                if (estudiante != null)
+                TxtNombre.Text = estudiante.Nombre;
+                var response = estudianteService.BuscarDtg(TxtIdentificacion.Text);
+                if (response != null)
                 {
-                    TxtNombre.Text = estudiante.Nombre;
-                }
-                else
-                {
-                    var Messg = estudianteService.ConsultaNoEncontradaIdentificacion();
-                    MessageBox.Show(Messg.Message);
-                }
-                LlenarDtg(response);
-            }           
-        }
-
-        private void LlenarDtg(ConsultaEstudianteResponse response)
-        {
-            if (response.Encontrado)
-            {
-                foreach (var item in response.Estudiante)
-                {
-                    DtgVotaciones.Rows.Add(item.Identificacion, item.Nombre, item.Voto, item.NumeroVoto);
+                    ConsultarTodosCandidatos();
                 }
             }
+            else
+            {
+                LimpiarTxt();
+                var Messg = estudianteService.ConsultaNoEncontradaIdentificacion();
+                MessageBox.Show(Messg.Message);
+                DtgVotaciones.Rows.Clear();
+                    
+            }               
         }
+        private void ConsultarTodosCandidatos()
+        {            
+            var response = CandidatoService.ConsultarTodosCandidatosDtg();
+            foreach (var item in response.Candidato)
+            {
+                DtgVotaciones.Rows.Add(item.NumeroTarjeton, item.Nombre);
+            }
+        }
+        
         private void ConsultarGanancias_Load(object sender, EventArgs e)
         {
 
@@ -64,6 +66,7 @@ namespace Design_Dashboard_Modern
         private void BtLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarTxt();
+            DtgVotaciones.Rows.Clear();
         }
         private void LimpiarTxt()
         {

@@ -44,28 +44,28 @@ namespace Design_Dashboard_Modern
             this.TxtIdentificacion = new System.Windows.Forms.TextBox();
             this.bunifuGradientPanel6 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.BtLimpiar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroTarjeton = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Voto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroVoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelColor = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DtgVotaciones)).BeginInit();
             this.bunifuGradientPanel1.SuspendLayout();
             this.bunifuGradientPanel4.SuspendLayout();
             this.bunifuGradientPanel5.SuspendLayout();
             this.bunifuGradientPanel6.SuspendLayout();
+            this.PanelColor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // DtgVotaciones
             // 
             this.DtgVotaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgVotaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Identificacion,
-            this.Nombre,
-            this.Voto,
-            this.NumeroVoto});
-            this.DtgVotaciones.Location = new System.Drawing.Point(126, 175);
+            this.NumeroTarjeton,
+            this.Nombre});
+            this.DtgVotaciones.Location = new System.Drawing.Point(68, 178);
             this.DtgVotaciones.Name = "DtgVotaciones";
-            this.DtgVotaciones.Size = new System.Drawing.Size(579, 221);
+            this.DtgVotaciones.Size = new System.Drawing.Size(348, 221);
             this.DtgVotaciones.TabIndex = 0;
             // 
             // label2
@@ -88,7 +88,7 @@ namespace Design_Dashboard_Modern
             this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.DarkViolet;
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(347, 421);
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(152, 425);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(177, 44);
@@ -137,7 +137,7 @@ namespace Design_Dashboard_Modern
             this.bunifuGradientPanel4.GradientBottomRight = System.Drawing.Color.DarkViolet;
             this.bunifuGradientPanel4.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel4.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuGradientPanel4.Location = new System.Drawing.Point(640, 447);
+            this.bunifuGradientPanel4.Location = new System.Drawing.Point(626, 447);
             this.bunifuGradientPanel4.Name = "bunifuGradientPanel4";
             this.bunifuGradientPanel4.Quality = 10;
             this.bunifuGradientPanel4.Size = new System.Drawing.Size(155, 44);
@@ -294,25 +294,41 @@ namespace Design_Dashboard_Modern
             this.BtLimpiar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.BtLimpiar.Click += new System.EventHandler(this.BtLimpiar_Click);
             // 
-            // Identificacion
+            // NumeroTarjeton
             // 
-            this.Identificacion.HeaderText = "Identificacion";
-            this.Identificacion.Name = "Identificacion";
+            this.NumeroTarjeton.HeaderText = "NumeroTarjeton";
+            this.NumeroTarjeton.Name = "NumeroTarjeton";
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             // 
-            // Voto
+            // PanelColor
             // 
-            this.Voto.HeaderText = "Voto";
-            this.Voto.Name = "Voto";
+            this.PanelColor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelColor.BackgroundImage")));
+            this.PanelColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelColor.Controls.Add(this.pictureBox1);
+            this.PanelColor.GradientBottomLeft = System.Drawing.Color.Blue;
+            this.PanelColor.GradientBottomRight = System.Drawing.Color.DarkViolet;
+            this.PanelColor.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.PanelColor.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.PanelColor.Location = new System.Drawing.Point(518, 178);
+            this.PanelColor.Name = "PanelColor";
+            this.PanelColor.Quality = 10;
+            this.PanelColor.Size = new System.Drawing.Size(263, 237);
+            this.PanelColor.TabIndex = 54;
             // 
-            // NumeroVoto
+            // pictureBox1
             // 
-            this.NumeroVoto.HeaderText = "NumeroVoto";
-            this.NumeroVoto.Name = "NumeroVoto";
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 231);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // VotacionesEstudiantes
             // 
@@ -320,6 +336,7 @@ namespace Design_Dashboard_Modern
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(817, 514);
+            this.Controls.Add(this.PanelColor);
             this.Controls.Add(this.bunifuGradientPanel6);
             this.Controls.Add(this.bunifuGradientPanel5);
             this.Controls.Add(this.label1);
@@ -338,6 +355,8 @@ namespace Design_Dashboard_Modern
             this.bunifuGradientPanel4.ResumeLayout(false);
             this.bunifuGradientPanel5.ResumeLayout(false);
             this.bunifuGradientPanel6.ResumeLayout(false);
+            this.PanelColor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,9 +378,9 @@ namespace Design_Dashboard_Modern
         private System.Windows.Forms.TextBox TxtIdentificacion;
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel6;
         private Bunifu.Framework.UI.BunifuFlatButton BtLimpiar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Identificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroTarjeton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Voto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroVoto;
+        private Bunifu.Framework.UI.BunifuGradientPanel PanelColor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
