@@ -52,17 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cambio.cs">
+    <Compile Include="VotacionesEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cambio.Designer.cs">
-      <DependentUpon>Cambio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultarGanancias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultarGanancias.Designer.cs">
-      <DependentUpon>ConsultarGanancias.cs</DependentUpon>
+    <Compile Include="VotacionesEstudiantes.Designer.cs">
+      <DependentUpon>VotacionesEstudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuHotel.cs">
       <SubType>Form</SubType>
@@ -90,11 +84,8 @@
     <Compile Include="RegistrosCandidatos.Designer.cs">
       <DependentUpon>RegistrosCandidatos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cambio.resx">
-      <DependentUpon>Cambio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultarGanancias.resx">
-      <DependentUpon>ConsultarGanancias.cs</DependentUpon>
+    <EmbeddedResource Include="VotacionesEstudiantes.resx">
+      <DependentUpon>VotacionesEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuHotel.resx">
       <DependentUpon>MenuHotel.cs</DependentUpon>

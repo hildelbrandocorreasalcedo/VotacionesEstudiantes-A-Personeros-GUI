@@ -275,6 +275,7 @@ namespace Design_Dashboard_Modern
                     Candidatos candidato = respuesta.Candidato;
                     TxtNombre.Text = candidato.Nombre;
                     TxtCantidadVotos.Text = candidato.CantidadVotos.ToString();
+                    MessageBox.Show(respuesta.Mensaje);
                 }
                 else
                 {

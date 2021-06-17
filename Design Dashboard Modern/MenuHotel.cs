@@ -104,7 +104,7 @@ namespace Design_Dashboard_Modern
 
         private void BtConsultarPensionado_Click(object sender, EventArgs e)
         {
-            openChildForm(new ConsultaModPensionado());
+            openChildForm(new VotacionesEstudiantes());
         }
 
         private void BtReservas_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Design_Dashboard_Modern
         private void BtIngrGast_Click(object sender, EventArgs e)
         {
            
-            openChildForm(new Cambio());
+            openChildForm(new ConsultaModPensionado());
         }
 
         private void BtConsultarGanancias_Click(object sender, EventArgs e)

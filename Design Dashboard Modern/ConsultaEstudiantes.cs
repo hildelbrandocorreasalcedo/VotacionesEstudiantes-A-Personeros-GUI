@@ -48,6 +48,13 @@ namespace Design_Dashboard_Modern
             var response = estudianteService.BuscarDtg(TxtIdentificacion.Text);
             if (response != null)
             {
+                EstudianteResponse respuesta = estudianteService.BuscarPorIdentificacion(TxtIdentificacion.Text);
+                Estudiante estudiante = respuesta.Estudiante;
+                if (estudiante == null)
+                {
+                    var Messg = estudianteService.ConsultaNoEncontradaIdentificacion();
+                    MessageBox.Show(Messg.Message);
+                }
                 LlenarDtg(response);
             }
         }

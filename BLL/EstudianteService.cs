@@ -194,6 +194,18 @@ namespace BLL
             }
         }
 
+        public ConsultaEstudianteResponse ConsultaNoEncontradaIdentificacion()
+        {
+            try
+            {
+                return new ConsultaEstudianteResponse("La identificacion buscada no se encuentra, vuelva a intentarlo con otra identificacion");
+            }
+            catch (Exception e)
+            {
+                return new ConsultaEstudianteResponse("Error de Aplicacion: " + e.Message);
+            }
+        }
+
         public ConsultaEstudianteResponse ConsultarTodos()
             {
             try
